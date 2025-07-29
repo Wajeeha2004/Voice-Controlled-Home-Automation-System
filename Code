@@ -1,0 +1,60 @@
+#define BLYNK_TEMPLATE_ID "TMPL6CEFsHeF9"
+#define BLYNK_TEMPLATE_NAME "SmartStreetLight"
+#define BLYNK_AUTH_TOKEN "vHcF_x6nW0Y-ow4Ovasu2ZU-pRVtx3iP"
+#define BLYNK_PRINT Serial
+
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+
+// Your credentials
+char auth[] = "vHcF_x6nW0Y-ow4Ovasu2ZU-pRVtx3iP";
+char ssid[] = "Galaxy A13 7AC7";
+char pass[] = "ucno4258";
+
+// Define the pins for 3 devices
+const int device1 = D1;
+const int device2 = D2;
+const int device3 = D3;
+
+// Control Device 1 via Virtual Pin V1
+BLYNK_WRITE(V1) {
+  int value = param.asInt();
+  digitalWrite(device1, value);
+  Serial.print("Device 1: ");
+  Serial.println(value ? "ON" : "OFF");
+}
+
+// Control Device 2 via Virtual Pin V2
+BLYNK_WRITE(V2) {
+  int value = param.asInt();
+  digitalWrite(device2, value);
+  Serial.print("Device 2: ");
+  Serial.println(value ? "ON" : "OFF");
+}
+
+// Control Device 3 via Virtual Pin V3
+BLYNK_WRITE(V3) {
+  int value = param.asInt();
+  digitalWrite(device3, value);
+  Serial.print("Device 3: ");
+  Serial.println(value ? "ON" : "OFF");
+}
+
+void setup() {
+  // Initialize all device pins as outputs
+  pinMode(device1, OUTPUT);
+  pinMode(device2, OUTPUT);
+  pinMode(device3, OUTPUT);
+  
+  // Start with all devices off
+  digitalWrite(device1, LOW);
+  digitalWrite(device2, LOW);
+  digitalWrite(device3, LOW);
+  
+  Serial.begin(115200);
+  Blynk.begin(auth, ssid, pass); // Connect to Blynk
+}
+
+void loop() {
+  Blynk.run();
+}
