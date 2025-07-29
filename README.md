@@ -1,6 +1,6 @@
-🏠 **Smart Home Automation (Blynk + ESP8266)**
+# 🏠 **Smart Home Automation (Blynk + ESP8266)**
 
-🔹 **Core Concept**:
+## 🔹 **Core Concept**:
 
 Control 3 devices using an ESP8266 via:
 
@@ -8,7 +8,7 @@ Control 3 devices using an ESP8266 via:
 
 🗣️ Google Assistant (via IFTTT webhooks)
 
-🔹**Key Components:**
+## 🔹**Key Components:**
 
 📶 ESP8266 – WiFi microcontroller
 
@@ -18,7 +18,7 @@ Control 3 devices using an ESP8266 via:
 
 🔗 IFTTT – Converts voice commands to webhooks
 
-🔹 **How It Works:**
+## 🔹 **How It Works:**
 
 1. Give a voice command to Google Assistant
 
